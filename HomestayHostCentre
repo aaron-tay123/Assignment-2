@@ -1,0 +1,40 @@
+package Assignment2;
+
+//2.4 Abstraction
+public abstract class HomestayHostCentre { // super class of  AdvertisementNMarketing
+
+	private String CompanyName;
+	private int CompanyPhoneNum;
+	private String CompanyAdd;
+	private String CompanyWebsite;
+	
+	
+	public HomestayHostCentre(String CN, int PN, String CA, String W) { //Constructor with 4 argument
+		this.CompanyName=CN;
+		this.CompanyPhoneNum=PN;
+		this.CompanyAdd=CA;
+		this.CompanyWebsite=W;
+		
+	}
+	
+	//2.3 Encapsulation
+	//Create Getter Method
+	public String getCompanyName() {
+		return this.CompanyName;
+	}
+	
+	public int getCompanyPhoneNum() {
+		return this.CompanyPhoneNum;
+	}
+	
+	public String getCompanyAdd() {
+		return this.CompanyAdd;
+	}
+	
+	public String getCompanyWebsite() {
+		return this.CompanyWebsite;
+	}
+	
+	public abstract void printInfo();  //method to print the information of company
+		
+}
