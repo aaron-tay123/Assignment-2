@@ -1,0 +1,31 @@
+package Assignment2;
+
+public class Sales { //super class of Finance
+
+private double sales;
+	
+	public Sales(double s) {//constructor with 1 argument
+		this.sales=s;
+	
+	}
+	public double totalSalesWeek() { //method to calculate the total sales per week
+		return this.sales*7;
+	}
+	
+	public double totalSalesMonths() { //method to calculate the total sales per month
+		return totalSalesWeek()*4;
+	}
+	
+	//2.2 Polymorphism
+	public void printInfo() {
+		System.out.println("-----------------------------------");
+		System.out.println("The Report of Sales");
+		System.out.println("-----------------------------------");
+		System.out.println("");
+		System.out.println("Sales per days : RM " + this.sales);
+		System.out.println("Total sales per week: RM " + totalSalesWeek());
+		System.out.println("Total sales per month: RM " + totalSalesMonths());
+	}
+
+}
+
