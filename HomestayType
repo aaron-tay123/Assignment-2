@@ -1,0 +1,97 @@
+package Assignment2;
+
+public class HomestayType{ //super class of customer
+
+	private String type;
+	private String size;
+	private char meal;
+	private char security;
+	
+	public HomestayType() { // Constructor with no argument
+		
+	}
+
+	//2.3 Encapsulation
+	// Create setter method
+	public void setType(String type) {
+		this.type=type;
+	}
+	
+	public void setSize(String size) {
+		this.size=size;
+	}
+	
+	public void setMeal(char meal) {
+		this.meal=meal;
+	}
+	
+	public void setSecurity(char security) {
+		this.security=security;
+	}
+	
+	//Create Getter method
+	public String getType() {
+		return this.type;
+	}
+	
+	public String getSize() {
+		return this.size;
+	}
+	
+	public char getMeal() {
+		return this.meal;
+	}
+	
+	public char getSecurity() {
+		return this.security;
+	}
+	 
+	//2.2 Polymorphism
+	public void printInfo() {
+		System.out.println("-------------------------------------");
+		System.out.println("Type of Homestay");
+		System.out.println("-------------------------------------");
+		System.out.println("");
+	}
+	
+	//print the info of Homestay type
+	public String printInfoAuthenticHomestay() { //method to print the info of Authentic Homestay
+		setType("Authentic Homestay");
+		setSize("Medium");
+		setMeal('Y');
+		setSecurity('Y');
+		return "Type of Homestay                            : " + getType()
+				+ "\nSize                                        : " + getSize()
+				+ "\nDoes the homestay has prepare meal[Y/N]     : " + getMeal()
+				+ "\nDoes the homestay has 24 hours security[Y/N]: " + getSecurity()
+				+ "\nRate of Homestay                            : 5 Stars "
+				+ "\nDoes the Homestay has Free Wifi             : Yes ";
+	}
+	
+	public String printInfoComfortableHomestay() { //method to print the info of Comfortable Homestay
+		setType("Comfortable Homestay");
+		setSize("Large");
+		setMeal('Y');
+		setSecurity('N');
+		return "Type of Homestay                            : " + getType()
+				+ "\nSize                                        : " + getSize()
+				+ "\nDoes the homestay has prepare meal[Y/N]     : " + getMeal()
+				+ "\nDoes the homestay has 24 hours security[Y/N]: " + getSecurity()
+				+ "\nRate of Homestay                            : 4.5 Stars "
+				+ "\nDoes the Homestay has Free Wifi             : Yes ";
+	}
+	
+	public String printInfoTouristHomestay() { //method to print the info of Tourist Homestay
+		setType("Tourist Homestay");
+		setSize("Medium");
+		setMeal('Y');
+		setSecurity('Y');
+		return "Type of Homestay                            : " + getType()
+				+ "\nSize                                        : " + getSize()
+				+ "\nDoes the homestay has prepare meal[Y/N]     : " + getMeal()
+				+ "\nDoes the homestay has 24 hours security[Y/N]: " + getSecurity()
+				+ "\nRate of Homestay                            : 4.0 Stars "
+				+ "\nDoes the Homestay has Free Wifi             : Yes ";
+	}
+		
+}
