@@ -1,0 +1,189 @@
+package Assignment2;
+
+import java.util.Scanner;
+
+//2.1 Inheritance
+public class Customer extends HomestayType {
+	private String custName;
+	private int age;
+	private char gender;
+	private int PhoneNum;
+	private String rentLocation;
+	private int selection;
+	private int day;
+	private double rentPrice;
+	private double totalPrice;
+	
+	Scanner in = new Scanner(System.in);
+	
+	public Customer() { // constructor with no argument
+		
+		printInfoAuthenticHomestay();
+		printInfoComfortableHomestay();
+		printInfoTouristHomestay();
+		
+		System.out.println("Please Enter The Customer Info Below: ");
+		System.out.println("");
+		
+		System.out.println("Please enter the name: ");
+		this.custName = in.next();
+		
+		System.out.println("Please enter the age: ");
+		this.age = in.nextInt();
+		
+		System.out.println("Please enter the gender[M - Male, F - Female]");
+		this.gender = in.next().charAt(0);
+		
+		System.out.println("Please enter the phone number: ");
+		this.PhoneNum = in.nextInt();
+		
+		System.out.println("Please enter the rent location: ");
+		this.rentLocation = in.next();
+		
+		System.out.println("Please enter the selection[1 - Authentic Homestay, 2 - Comfortable homestay, 3 - Tourist homestay]");
+		this.selection = in.nextInt();
+		
+		System.out.println("Please enter the number of day for rent: ");
+		this.day = in.nextInt();
+		
+		System.out.println("");
+		printInfo();
+		System.out.println("\nName           : " + this.custName);
+		System.out.println("Age            : " + this.age);
+		System.out.println("Gender         : " + this.gender);
+		System.out.println("Phone Number   : " + this.PhoneNum);
+		System.out.println("Rent Location  : " + this.rentLocation);
+		
+		if(selection==1) { //selection for Authentic Homestay
+			if(day<7) { //if less than 7 days
+				
+				 Payment AH = new TotalPrice(); //2.5 Interface
+				 rentPrice = AH.rentPrice(selection, day); //rent price for Authentic Homestay
+				 totalPrice= AH.getPayment(selection, day); //initialize the total price for host
+				 System.out.println("Rental Price per day        : RM " + this.rentPrice);
+				 System.out.println("Total rental price          : RM " + totalPrice);
+
+			}	 
+			else if(day>=7 && day<30) { //if more than or equal to 7 days but less than 30 days 
+				 Payment AH = new TotalPrice(); //2.5 Interface
+				 rentPrice= AH.rentPrice(selection, day); // new rent price for homestay if more than 7 days but less than 30 days
+				 totalPrice = AH.getPayment(selection, day); //initialize the total price for host
+				 System.out.println("Rental Price per day        : RM " + rentPrice);
+				 System.out.println("Total rental price          : RM " + totalPrice);
+		    }
+			else {  //if more than 30 days
+				 Payment AH = new TotalPrice(); //2.5 Interface
+				 double disc = AH.disc();
+				 rentPrice = AH.rentPrice(selection, day); //new price of Authentic Homestay that rent for more than 30 days
+				 totalPrice = AH.getPayment(selection, day, disc); //initialize the total price for host
+				 System.out.println("Rental Price per day        : RM " + rentPrice);
+				 System.out.println("Total rental price          : RM " + totalPrice);
+			}   
+		}// end of selection 1
+		
+		else if(selection==2) { //selection for Comfortable Homestay
+			if(day<7) { //if less than 7 days
+				 Payment CH = new TotalPrice(); //2.5 Interface
+				 rentPrice = CH.rentPrice(selection, day); //rent price for Comfortable Homestay
+				 totalPrice= CH.getPayment(selection, day); //initialize the total price for host
+				 System.out.println("Rental Price per day        : RM " + this.rentPrice);
+				 System.out.println("Total rental price          : RM " + totalPrice);
+			}	 
+			else if(day>=7 && day<30) { //if more than or equal to 7 days but less than 30 days
+				 Payment CH = new TotalPrice(); //2.5 Interface
+				 rentPrice = CH.rentPrice(selection, day); //rent price for Comfortable Homestay
+				 totalPrice= CH.getPayment(selection, day); //initialize the total price for host
+				 System.out.println("Rental Price per day        : RM " + rentPrice);
+				 System.out.println("Total rental price          : RM " + totalPrice);
+		    }
+			else { //if more than 30 days
+				 Payment CH = new TotalPrice(); //2.5 Interface
+				 double disc = CH.disc();
+				 rentPrice = CH.rentPrice(selection, day); //new price of Comfortable Homestay that rent for more than 30 days
+				 totalPrice = CH.getPayment(selection, day, disc); //initialize the total price for host
+				 System.out.println("Rental Price per day        : RM " + rentPrice);
+				 System.out.println("Total rental price          : RM " + totalPrice);
+			}   
+		}// end of selection 2
+		
+		else { //selection for Tourist Homestay
+			if(day<7) { //if less than 7 days
+				 Payment TH = new TotalPrice(); //2.5 Interface
+				 rentPrice = TH.rentPrice(selection, day); //rent price for Tourist Homestay
+				 totalPrice= TH.getPayment(selection, day); //initialize the total price for hos
+				 System.out.println("Rental Price per day        : RM " + this.rentPrice);
+				 System.out.println("Total rental price          : RM " + totalPrice);
+			}	 
+			else if(day>=7 && day<30) { //if more than or equal to 7 days but less than 30 days
+				 Payment TH = new TotalPrice(); //2.5 Interface
+				 rentPrice = TH.rentPrice(selection, day); //rent price for Tourist Homestay
+				 totalPrice= TH.getPayment(selection, day); //initialize the total price for hos
+				 System.out.println("Rental Price per day        : RM " + rentPrice);
+				 System.out.println("Total rental price          : RM " + totalPrice);
+		    }
+			else { //if more than 30 days
+				 Payment TH = new TotalPrice(); //2.5 Interface
+				 double disc = TH.disc();
+				 rentPrice = TH.rentPrice(selection, day); //new price of Tourist Homestay that rent for more than 30 days
+				 totalPrice = TH.getPayment(selection, day, disc); //initialize the total price for host
+				 System.out.println("Rental Price per day        : RM " + rentPrice);
+				 System.out.println("Total rental price          : RM " + totalPrice);
+			}   
+		}// end of selection 3
+			
+	}
+	
+	//2.3 Encapsulation
+	// create getter method
+	public String getCustomerName() {
+		return this.custName;
+	}
+	
+	public int getAge() {
+		return this.age;
+	}
+	
+	public char getGender() {
+		return this.gender;
+	}
+	
+	public int getPhoneNum() {
+		return this.PhoneNum;
+	}
+	
+	public String getRentLocation() {
+		return this.rentLocation;
+	}
+	
+	public int getSelection() {
+		return this.selection;
+	}
+	
+	public int getDay() {
+		return this.day;
+	}
+	
+	public double getRentPrice() {
+		return this.rentPrice;
+	}
+	
+	public double totalRentPrice() { // method with no argument
+		return this.rentPrice*this.day;
+	}
+	
+	public double totalRentPrice(double newPrice) { // method with 1 argument
+		return newPrice*this.day;
+	}
+
+	public double totalRentPrice(double newPrice, double disc) { // method with 2 arguments
+		return  (newPrice*(1-disc))*this.day;
+	}
+	
+	//2.2 Polymorphism
+	public void printInfo() { 
+		System.out.println("-----------------------------------");
+		System.out.println("The Information of Customer");
+		System.out.println("-----------------------------------");
+	}
+}
+
