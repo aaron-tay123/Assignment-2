@@ -1,0 +1,38 @@
+package Assignment2;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+	    AdvertisementNMarketing AM = new AdvertisementNMarketing("SHANGRI_LA",345678, "1A,Jalan Kancil", "abc@gmail.com");
+		System.out.println("");
+
+		
+		HomestayType AH = new HomestayType();
+        AH.printInfo();
+        System.out.println(AH.printInfoAuthenticHomestay());
+		System.out.println("");
+		HomestayType CH = new HomestayType();
+		CH.printInfo();
+        System.out.println(CH.printInfoComfortableHomestay());
+		System.out.println("");
+		HomestayType TH = new HomestayType();
+		TH.printInfo();
+		System.out.println(TH.printInfoTouristHomestay());
+		System.out.println("");
+		
+		
+		Customer Cus = new Customer();
+		System.out.println("");
+		
+		
+		Employee Emp = new Employee();
+		System.out.println("");
+		
+		
+		Finance Fi = new Finance(35990.88, 5850.50, 899.99, 785.93, 950.59, 588.99 );
+		System.out.println("");
+		
+	}
+
+}
