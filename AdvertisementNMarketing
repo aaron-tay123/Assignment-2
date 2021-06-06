@@ -1,0 +1,42 @@
+package Assignment2;
+
+public class AdvertisementNMarketing extends HomestayHostCentre { //2.1 Inheritance
+
+	private double price;
+	private double discount;
+	
+	AdvertisementNMarketing(String CN, int PN, String CA, String W) { // Constructor with no argument
+		super(CN, PN, CA, W);
+		price = 159.9;
+		discount = 0.3;
+		
+		printInfo();
+		System.out.println("");
+		displayInfo(price, discount);	
+	}
+	
+	 //2.2 Polymorphism
+	public void printInfo() {
+		System.out.println("-----------------------------------");
+		System.out.println("The Detail Of Homestay");
+		System.out.println("-----------------------------------");
+		System.out.println("");
+		System.out.println("Company Name        : " + super.getCompanyName());
+		System.out.println("Company Phone Number: " + super.getCompanyPhoneNum());
+		System.out.println("Company Address     : " + super.getCompanyAdd());
+		System.out.println("Company Website     : " + super.getCompanyWebsite());
+	}
+	
+	public void displayInfo(double price, double discount) { //method with 2 parameters
+		System.out.println("-------------------------------------");
+		System.out.println("Information of Advertisement And Marketing");
+		System.out.println("-------------------------------------");
+		System.out.println("");
+		System.out.println("Come And Rent The HomeStay!!!");
+		System.out.println("There are many type of homestay to be hosted!!!");
+		System.out.println("The Lower Price for the Homestay Host is Only RM " + this.price + "!!!");
+		System.out.println("If you host more than 30 Days, You Will Get" + discount*100 + " % Discount !!!");
+	}
+
+}
+
