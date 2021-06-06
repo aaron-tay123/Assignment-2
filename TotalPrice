@@ -1,0 +1,65 @@
+package Assignment2;
+
+public class TotalPrice implements Payment { //2.5 Interface
+
+    double price;
+
+	public double disc() {
+		return 0.3;
+	}
+	
+
+		public double rentPrice(int selection, int day) {
+			price = 0;
+			
+			if(selection==1) {
+				if(day<7) {
+					return price=159.9;
+				}
+				else if(day>=7 && day<30) {
+					return price=139.9;
+				}
+				
+				else {
+					return price=119.9-(119.9*disc());
+				}
+			}//end of selection 1	
+				
+			else if(selection==2) {
+				if(day<7) {
+					return price=169.9;
+				}
+				else if(day>=7 && day<30) {
+					return price=162.9;
+				}
+				
+				else {
+					return price=155.9-(155.9*disc());
+				}
+			}// end of selection 2
+			
+			else {
+				if(day<7) {
+					return price=183.9;
+				}
+				else if(day>=7 && day<30) {
+					return price=175.9;
+				}
+				
+				else {
+					return price=165.9-(165.9*disc());
+				}
+				
+			} //end of selection 3
+
+		} //end of method rentPrice
+		
+		public double getPayment(int selection, int day) { //method with 2 argument
+			return rentPrice(selection, day)*day;	
+	}
+		
+		public double getPayment(int selection, int day, double disc) { //method with 3 argument
+			return rentPrice(selection, day)*day;
+		}
+		
+}
