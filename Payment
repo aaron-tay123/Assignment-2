@@ -1,0 +1,9 @@
+package Assignment2;
+
+public interface Payment { //2.5 Interface
+
+	double disc();
+	double rentPrice(int selection, int day); //method with 2 argument
+	double getPayment(int selection, int day);//method with 2 argument
+	double getPayment(int selection, int day, double disc); //method with 3 argument
+}
