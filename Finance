@@ -1,0 +1,56 @@
+package Assignment2;
+
+import java.text.DecimalFormat;
+
+public class Finance extends Sales{ //2.1 Inheritance
+
+
+	private double employSalary;
+	private double inventExp;
+	private double maintenanceFees;
+	private double utilityFees;
+	private double advertFees;
+	
+	public Finance(double s, double eS, double iE, double mF, double uF, double aF) { // constructor with 6 argument
+		super(s);
+		
+		DecimalFormat df = new DecimalFormat("#.##");
+
+		this.employSalary = eS;
+		this.inventExp = iE;
+		this.maintenanceFees = mF;
+		this.utilityFees = uF;
+		this.advertFees = aF;
+		
+		super.printInfo();
+		System.out.println("");
+		printInfo();
+		System.out.println("");
+		System.out.println("Total employee salary   : RM " + this.employSalary);
+		System.out.println("Total inventory expenses: RM " + this.inventExp);
+		System.out.println("Total maintenance fees  : RM " + this.maintenanceFees);
+		System.out.println("Total utility fees      : RM " + this.utilityFees);
+		System.out.println("Total advertisement fees: RM " + this.advertFees);
+		System.out.println("Total expenses          : RM " + df.format(totalExpenses()));
+		System.out.println("Total sales             : RM " + super.totalSalesMonths());
+		System.out.println("Total Net Profit        : RM " + df.format(totalnetProfit()));
+		System.out.println("");
+	}
+	
+	public double totalExpenses() { //method to calculate total expenses
+		return employSalary + inventExp + maintenanceFees + utilityFees + advertFees;
+	}
+	
+	public double totalnetProfit() { //method to calculate total net profit
+		return super.totalSalesMonths()- totalExpenses();
+	}
+	
+	//2.2 Polymorphism
+	public void printInfo() {
+		System.out.println("----------------------------------");
+		System.out.println("Finance Statement for One Month");
+		System.out.println("----------------------------------");
+	}
+
+}
+
